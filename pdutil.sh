@@ -100,7 +100,7 @@ function install_deb() {
 
 function install_rpm() {
 	# Update yum for fresh RPM installations
-	yum update &> /dev/null
+	yum -y update &> /dev/null
 
 	echo "Installing PrizmDoc..."
 	if [[ ! "$EXCLUDE_SERVER" == true ]]; then
