@@ -101,7 +101,10 @@ function install_deb() {
 function install_rpm() {
 	# Update yum for fresh RPM installations
 	yum update &> /dev/null
-
+	#disable firewall
+	systemctl disable firewalld
+	#turn off firewall
+	systemctl stop firewalld
 	echo "Installing PrizmDoc..."
 	if [[ ! "$EXCLUDE_SERVER" == true ]]; then
 		yum install -y --nogpgcheck ./*server*/*.rpm
